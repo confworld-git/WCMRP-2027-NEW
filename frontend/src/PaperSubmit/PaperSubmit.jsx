@@ -40,6 +40,7 @@ const PaperSubmit = () => {
     const PaperID = `${base}${randomNumber}`;
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const submissionType = formData.get("submissionType") || "Research Paper";
     formData.set("paperId", PaperID);
     formData.set("mobile", phone || "");
     setIsSubmitting(true);
@@ -59,6 +60,15 @@ const PaperSubmit = () => {
             "We could not submit your paper. Please try again.",
         },
       );
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "paper_submission",
+          paper_id: PaperID,
+          conference_name: "WCMRP 2027",
+          submission_type: submissionType,
+        });
+      }
       form.reset();
       setPhone(undefined);
       setCountry("");

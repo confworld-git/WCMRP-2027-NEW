@@ -49,6 +49,17 @@ export default function PaymentSuccess() {
 
   useEffect(() => {
     if (!hasReceipt) return;
+
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "purchase",
+        transaction_id: receipt.orderId,
+        value: Number(receipt.amount) / 100,
+        currency: receipt.currency || "USD",
+      });
+    }
+
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -201,7 +212,9 @@ export default function PaymentSuccess() {
               <div className="ps-help">
                 <p>Need help? Contact us</p>
                 <div>
-                  <a href="mailto:wcmrp.cerada@gmail.com">wcmrp.cerada@gmail.com</a>
+                  <a href="mailto:wcmrp.cerada@gmail.com">
+                    wcmrp.cerada@gmail.com
+                  </a>
                   <a href="tel:+918072381719">+91 8072381719</a>
                 </div>
               </div>
