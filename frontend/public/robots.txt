@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /Payment-success-page
+Sitemap: https://wcmrp.confworld.org/sitemap.xml

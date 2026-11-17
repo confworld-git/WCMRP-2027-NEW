@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Early Bird Registration",
+    "day": "31",
+    "suffix": "st",
+    "month": "Jan 2027"
+  },
+  {
+    "title": "Abstract Submission",
+    "day": "25",
+    "suffix": "th",
+    "month": "Apr 2027"
+  },
+  {
+    "title": "Full Paper Submission",
+    "day": "30",
+    "suffix": "th",
+    "month": "Apr 2027"
+  },
+  {
+    "title": "Final Registration",
+    "day": "03",
+    "suffix": "rd",
+    "month": "May 2027"
+  }
+]

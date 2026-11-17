@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    @media only screen and (max-width: 620px) {
+      .container { width: 100% !important; }
+      .px { padding-left: 20px !important; padding-right: 20px !important; }
+      .label-cell, .value-cell { display: block !important; width: 100% !important; }
+      .label-cell { padding-bottom: 2px !important; }
+      .value-cell { padding-top: 0 !important; }
+    }
+  </style>
+  <title>New {{submissionType}} submission: {{paperTitle}}</title>
+  <!--[if mso]>
+  <style>table, td { font-family: Arial, Helvetica, sans-serif !important; }</style>
+  <![endif]-->
+</head>
+<body style="margin:0; padding:0; background-color:#EEF1F5; -webkit-text-size-adjust:100%;">
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#EEF1F5;">{{authorName}} ({{country}}) submitted a {{submissionType}} for {{presentationCategory}} presentation.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EEF1F5;">
+    <tr><td align="center" style="padding:32px 12px;">
+      <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+        <tr>
+          <td class="px" style="background-color:#010ba8; padding:28px 36px; border-radius:10px 10px 0 0;">
+            <p style="margin:0 0 6px 0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:13px; color:#C7CBFF;">WCMRP</p>
+            <h1 style="margin:0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:24px; line-height:32px; font-weight:600; color:#FFFFFF;">New paper submission</h1>
+          </td>
+        </tr>
+        <tr><td height="4" style="height:4px; line-height:4px; font-size:0; background-color:#fe9a00;">&nbsp;</td></tr>
+        <tr>
+          <td class="px" style="background-color:#FFFFFF; padding:32px 36px 12px 36px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+            <p style="margin:0 0 16px 0; font-size:15px; line-height:26px; color:#3B4558;"><strong style="color:#010ba8;">{{authorName}}</strong> submitted a <strong style="color:#010ba8;">{{submissionType}}</strong> on {{createdAt}}. The paper file is attached to this email.</p>
+            <p style="margin:28px 0 4px 0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#010ba8;">Paper</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px; line-height:22px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Submission ID</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><strong>{{paperId}}</strong></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Title</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><strong>{{paperTitle}}</strong></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Submission type</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{submissionType}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Presentation category</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{presentationCategory}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Presentation mode</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{presentationType}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Publication required</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{publicationRequired}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">File</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{paperFile.originalName}}<br><span style="color:#6B7689; font-size:12px;">{{paperSize}}</span></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#6B7689;">Status</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#010ba8;"><span style="display:inline-block; padding:3px 12px; border-radius:12px; background-color:#fe9a00; color:#2B1700; font-size:13px; font-weight:600;">{{status}}</span></td>
+              </tr>
+            </table>
+            <p style="margin:28px 0 4px 0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#010ba8;">Author</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px; line-height:22px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Name</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{authorName}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Co-authors</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{coauthors}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Designation</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{designation}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Department</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{department}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Institution</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{institution}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#6B7689;">Country</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#010ba8;">{{country}}</td>
+              </tr>
+            </table>
+            <p style="margin:28px 0 4px 0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#010ba8;">Contact</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px; line-height:22px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Email</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="mailto:{{email}}" style="color:#010ba8; text-decoration:none;">{{email}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Mobile</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="tel:{{mobile}}" style="color:#010ba8; text-decoration:none;">{{mobile}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">WhatsApp</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="tel:{{whatsapp}}" style="color:#010ba8; text-decoration:none;">{{whatsapp}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">LinkedIn</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="{{linkedin}}" style="color:#010ba8; text-decoration:underline; word-break:break-all;">{{linkedin}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#6B7689;">Facebook</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#010ba8;"><a href="{{facebook}}" style="color:#010ba8; text-decoration:underline; word-break:break-all;">{{facebook}}</a></td>
+              </tr>
+            </table>
+            <p style="margin:28px 0 4px 0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#010ba8;">Other</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px; line-height:22px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Heard about us via</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{conferenceSource}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="170" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#6B7689;">Message</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#010ba8;">{{message}}</td>
+              </tr>
+            </table>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:28px 0;">
+              <tr><td style="border-radius:6px; background-color:#010ba8;">
+                <a href="mailto:{{email}}?subject=Re:%20Your%20WCMRP%20submission%20-%20{{paperTitle}}" style="display:inline-block; padding:13px 26px; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#FFFFFF; text-decoration:none;">Reply to {{authorName}}</a>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="px" style="background-color:#F5F7FA; padding:18px 36px; border-radius:0 0 10px 10px; border-top:1px solid #E3E7ED; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#8791A3;">Submission ID: {{paperId}}<br>Automated notification from the WCMRP paper submission form.</td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

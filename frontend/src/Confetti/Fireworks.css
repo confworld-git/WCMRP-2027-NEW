@@ -1,0 +1,120 @@
+.fw-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  container-type: size;
+}
+
+/* anchor point = where the burst happens */
+.fw {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 0;
+  height: 0;
+}
+
+/* the line that goes up (first 25% of the cycle) */
+.fw-rocket {
+  position: absolute;
+  left: -1px;
+  top: -9px;
+  width: 2px;
+  height: 18px;
+  border-radius: 2px;
+  background: linear-gradient(to top, transparent, var(--c));
+  opacity: 0;
+  animation: fw-rise var(--cycle) linear var(--delay) infinite backwards;
+}
+
+.fw-ray,
+.fw-rocket {
+  will-change: transform, opacity;
+}
+
+@keyframes fw-rise {
+  0% {
+    opacity: 1;
+    transform: translate(
+        calc(var(--rise) * -1cqh * tan(var(--tilt))),
+        calc(var(--rise) * 1cqh)
+      )
+      rotate(var(--tilt));
+    animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 1);
+  }
+  22% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(var(--tilt));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(var(--tilt));
+  }
+}
+
+/* the boom (remaining 75% of the cycle) */
+.fw-burst {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: fw-droop var(--cycle) linear var(--delay) infinite backwards;
+}
+
+.fw-ray {
+  position: absolute;
+  left: calc(var(--w) / -2);
+  top: calc(var(--len) / -2);
+  width: var(--w);
+  height: var(--len);
+  border-radius: 2px;
+  background: var(--c);
+  opacity: 0;
+  animation: fw-ray var(--cycle) linear var(--delay) infinite backwards;
+}
+
+.fw-ray--dot {
+  border-radius: 50%;
+}
+
+@keyframes fw-ray {
+  0%,
+  25% {
+    opacity: 0;
+    transform: rotate(var(--a)) translateY(calc(var(--radius) * -0.1))
+      scaleY(0.4);
+    animation-timing-function: cubic-bezier(0.1, 0.7, 0.3, 1);
+  }
+  28% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--a)) translateY(calc(var(--radius) * -1)) scaleY(1);
+  }
+}
+
+/* slight gravity after the burst */
+@keyframes fw-droop {
+  0%,
+  25% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(28px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-stage {
+    display: none;
+  }
+}

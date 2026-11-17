@@ -1,0 +1,133 @@
+.deadlines {
+  padding: 40px 60px;
+  background: #f7f8fc;
+}
+
+.deadlines_calender {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.deadlines_calender > div {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 22px 20px 24px;
+  border: 1px solid #e8eaf4;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(25, 35, 90, 0.06);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.deadlines_calender > div::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+  content: "";
+}
+
+.deadlines_calender > div:hover {
+  transform: translateY(-5px);
+  border-color: rgba(1, 11, 168, 0.2);
+  box-shadow: 0 14px 30px rgba(25, 35, 90, 0.12);
+}
+
+.deadlines_calender > div > p {
+  min-height: 40px;
+  margin: 0 0 18px;
+  color: #62677e;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.deadlines_calender > div > h1 {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(52px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  line-height: 0.95;
+}
+
+.deadlines_calender > div > h1 > sub {
+  margin: 7px 0 0 5px;
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.deadlines_calender > div > span {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 11px;
+  border: 1px solid #e9eaff;
+  border-radius: 999px;
+  background: #f3f4ff;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .deadlines_calender {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .deadlines {
+    padding: 36px 24px;
+  }
+
+  .deadlines_calender {
+    gap: 12px;
+  }
+
+  .deadlines_calender > div {
+    padding: 18px 16px 20px;
+  }
+
+  .deadlines_calender > div > p {
+    min-height: 38px;
+    margin-bottom: 14px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .deadlines {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .deadlines_calender {
+    grid-template-columns: 1fr;
+  }
+
+  .deadlines_calender > div > p {
+    min-height: 0;
+  }
+  .deadlines_calender > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

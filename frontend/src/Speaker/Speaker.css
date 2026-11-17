@@ -1,0 +1,231 @@
+.speaker_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.speaker_img {
+  background-image: url(../assets/Images/speaker_section.png);
+  background-position: 0px -180px;
+  background-size: cover;
+}
+
+.speaker_head > div {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--primary) 45%, transparent 100%);
+  color: white;
+  width: 60%;
+}
+
+.speaker_img > div {
+  padding: 40px 60px;
+}
+
+.speaker_head > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(90deg, black 0%, black 35%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    black 0%,
+    black 35%,
+    transparent 100%
+  );
+}
+
+.speaker_head > div > * {
+  position: relative;
+  z-index: 1;
+}
+
+.speaker_head > div > h1 {
+  color: white;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.speaker_head > div > h1 > span {
+  color: var(--secondary);
+}
+
+.speaker_head > div > p {
+  padding: 0px;
+  margin: 20px 0px 0px 0px;
+  /* width: 80%; */
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.speaker_head > div > span {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.speaker_head > div > span a {
+  color: inherit;
+  text-decoration-color: var(--secondary);
+  text-underline-offset: 3px;
+}
+
+.speaker_head > div > span a:hover {
+  color: var(--secondary);
+}
+
+.speackers_list {
+  padding: 40px 60px;
+  background-color: #f5f5f5;
+}
+
+.speackers_list > div > .main_head {
+  font-size: 25px;
+}
+
+.keynote_speaker {
+  display: flex;
+  gap: 20px;
+  /* align-items: center; */
+  margin-top: 30px;
+}
+
+.keynote_speaker > div {
+  background-color: white;
+  padding: 10px 10px 20px 10px;
+  box-sizing: border-box;
+  border-radius: 35px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 320px;
+  position: relative;
+}
+
+.keynote_speaker > div:hover {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.keynote_speaker > div > .tag {
+  color: red;
+  font-size: 50px;
+  position: absolute;
+  top: -15px;
+  right: 30px;
+}
+
+.keynote_speaker > div > .seal {
+  color: red;
+  font-size: 50px;
+  position: absolute;
+  bottom: 30%;
+  right: 20px;
+}
+
+.keynote_speaker > div > .tag > img {
+  height: 45px;
+}
+
+.keynote_speaker > div > .seal > img {
+  height: 65px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.keynote_speaker > div > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.keynote_speaker > div > h1 {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  padding: 6px 10px;
+}
+
+.keynote_speaker > div > p {
+  margin: 0;
+  padding: 0px 10px;
+  font-size: 14px;
+}
+
+/* Skeleton card */
+.speaker_card_skeleton {
+  background-color: white;
+  padding: 10px 10px 20px;
+  box-sizing: border-box;
+  border-radius: 35px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 300px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Shimmer animation */
+.speaker_card_skeleton > div {
+  background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s infinite linear;
+}
+
+/* Image placeholder */
+.skeleton_image {
+  width: 100%;
+  height: 300px;
+  border-radius: 30px;
+  margin-bottom: 14px;
+}
+
+/* Text placeholders */
+.skeleton_line {
+  height: 12px;
+  border-radius: 6px;
+  margin: 10px 10px;
+}
+
+.skeleton_name {
+  width: 65%;
+  height: 18px;
+  margin-top: 12px;
+}
+
+.skeleton_text {
+  width: 85%;
+}
+
+.skeleton_text:last-child {
+  width: 70%;
+  margin-bottom: 5px;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .speaker_card_skeleton {
+    width: 100%;
+    max-width: 300px;
+  }
+}

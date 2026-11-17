@@ -1,0 +1,43 @@
+.Proceedings {
+  text-align: center;
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Proceedings > div {
+  width: 80%;
+  background-color: var(--primary);
+  color: white;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Proceedings > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0px;
+  border-bottom: 1px solid #fafafa25;
+}
+
+.Proceedings > div > div > img {
+  height: 100px;
+  width: 250px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.Proceedings > div > p {
+  font-size: 14px;
+  width: 80%;
+}

@@ -1,0 +1,39 @@
+{
+  "currency": "USD",
+  "physical": {
+    "title": "Physical (Onsite) Participants",
+    "columns": ["Early Bird (USD)", "Standard (USD)", "On Spot (USD)"],
+    "rows": [
+      {
+        "category": "Academicians / Delegates / Research Scholars / PhD Candidates",
+        "fees": [450, 500, 600]
+      },
+      {
+        "category": "UG / PG Students",
+        "fees": [425, 475, 575]
+      },
+      {
+        "category": "Non-Presenter / Attendee / Listener",
+        "fees": [225, 250, 350]
+      }
+    ]
+  },
+  "virtual": {
+    "title": "Virtual (Online) Participants",
+    "columns": ["Early Bird (USD)", "Standard (USD)"],
+    "rows": [
+      {
+        "category": "Academicians / Delegates / Research Scholars / PhD Candidates",
+        "fees": [125, 150]
+      },
+      {
+        "category": "UG / PG Students",
+        "fees": [125, 150]
+      },
+      {
+        "category": "Non-Presenter / Attendee / Listener",
+        "fees": [100, 125]
+      }
+    ]
+  }
+}

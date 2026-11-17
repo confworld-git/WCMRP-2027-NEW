@@ -1,0 +1,178 @@
+.Guidelines_main > section {
+  padding: 40px 60px;
+}
+
+.guide_img {
+  background-image: url(../assets/Images/Guide.jpg);
+  background-position: bottom;
+  background-size: cover;
+}
+
+.guide_img > div {
+  padding: 60px;
+}
+
+.Guidelines_main > div > .Hybrid {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.Guidelines_main > div > h1 {
+  margin: 0;
+  padding: 3px;
+}
+
+.Guidelines_main > div > p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  width: 60%;
+}
+
+.left_guide {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex: 5;
+  gap: 30px;
+  /* margin-top: 50px; */
+}
+
+.left_guide > :first-child {
+  flex: 2;
+}
+
+.left_guide > :last-child {
+  flex: 3;
+}
+
+.left_guide > :first-child::after{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 8px;
+  background-color: var(--primary);
+  top: 0;
+  left: 0;
+}
+
+.left_guide > :last-child::after{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 8px;
+  background-color: var(--secondary);
+  top: 0;
+  left: 0;
+}
+
+.left_guide > div {
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.left_guide > div > h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left_guide > div > h1 > svg {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 8px;
+}
+
+.left_guide > div > p {
+  font-style: italic;
+  font-size: 14px;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 10px;
+  font-weight: 450;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.left_guide > div > ul {
+  margin-top: 20px;
+}
+
+.left_guide > div > ul > li {
+  font-size: 14px;
+  padding: 10px 0px;
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+
+.left_guide > div > ul > li > svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+}
+
+.Quick {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 0px;
+  gap: 30px;
+}
+
+.Quick > div {
+  border-left: 6px solid var(--secondary);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 15px;
+  transition: 0.2s ease;
+}
+
+.Quick > div:hover,
+.Quick > button:hover {
+  transform: translateY(-5px);
+}
+
+.Quick > div > h1 {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 6px;
+  color: var(--secondary);
+}
+
+.Quick > div > h1 > svg {
+  color: var(--secondary);
+}
+
+.Quick > div > p {
+  font-size: 13px;
+}
+
+.Quick > button {
+  background-color: var(--secondary);
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary);
+  font-weight: 800;
+  text-wrap: nowrap;
+  transition: 0.2s ease;
+}

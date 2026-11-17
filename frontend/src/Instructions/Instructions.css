@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap");
+
+.reg {
+  --primary: #010ba8;
+  --secondary: #fe9a00;
+  --bg: #fff;
+  --card: #fff;
+  --ink: #0d1030;
+  --mute: #5b6090;
+  --line: #dfe2fb;
+  --soft: #e9ebff;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Sora, system-ui, sans-serif;
+  line-height: 1.5;
+  padding-bottom: 64px;
+}
+.reg *,
+.reg *::before,
+.reg *::after {
+  box-sizing: border-box;
+}
+.reg h1,
+.reg h2,
+.reg h3,
+.reg p,
+.reg ol {
+  margin: 0;
+  padding: 0;
+}
+.reg a {
+  color: inherit;
+}
+.reg .wrap {
+padding: 0px 80px;
+}
+
+/* ---------- Hero ---------- */
+.reg .hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary), #0a1fe0 70%);
+  color: #fff;
+  padding: 50px 0 50px;
+}
+.reg .hero svg.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+.reg .hero .wrap {
+  position: relative;
+}
+.reg .crumb {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+.reg .crumb a {
+  text-decoration: none;
+}
+.reg h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.reg h1 span {
+  color: var(--secondary);
+}
+.reg .hero p {
+  margin-top: 14px;
+  max-width: 46ch;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+/* ---------- Headings ---------- */
+.reg .eyebrow {
+  margin-top: 36px;
+  font:
+    600 12px "JetBrains Mono",
+    monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  padding: 6px 10px;
+  border-color: var(--secondary);
+}
+.reg .h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 4px;
+  color: var(--primary);
+}
+.reg .h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--secondary);
+  margin-top: 10px;
+}
+
+/* ---------- Steps ---------- */
+.reg .steps {
+  list-style: none;
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  position: relative;
+  counter-reset: s;
+}
+.reg .steps::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 92px;
+  border-top: 3px dashed var(--secondary);
+  opacity: 0.6;
+}
+.reg .step {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 26px 20px 24px;
+  text-align: center;
+  box-shadow: 0 12px 30px -20px rgba(1, 11, 168, 0.45);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.reg .step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -20px var(--primary);
+}
+.reg .num {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font:
+    500 15px "JetBrains Mono",
+    monospace;
+  /* transform: rotate(-6deg); */
+  box-shadow: 3px 3px 0 var(--secondary);
+}
+.reg .pic {
+  position: relative;
+  z-index: 1;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 14px;
+}
+.reg .pic svg {
+  width: 100%;
+  height: 100%;
+}
+.reg .step h3 {
+  font-size: 18px;
+}
+.reg .step p {
+  font-size: 14px;
+  color: var(--mute);
+  margin-top: 6px;
+}
+.reg .step a {
+  color: var(--primary);
+  font-weight: 600;
+  word-break: keep-all;
+}
+@media (max-width: 700px) {
+  .reg .steps::before {
+    display: none;
+  }
+}
+
+/* ---------- Note ---------- */
+.reg .note {
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--secondary);
+  color: #1a1000;
+  padding: 18px 24px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.reg .note::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(26, 16, 0, 0.12) 0 8px,
+    transparent 8px 18px
+  );
+}
+.reg .note svg {
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+.reg .note p {
+  font-size: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Guidelines ---------- */
+.reg .rules {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+.reg .rule {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--primary);
+  border-radius: 8px 22px 22px 8px;
+  padding: 22px 22px 22px 26px;
+  transition:
+    border-color 0.25s,
+    transform 0.25s;
+}
+.reg .rule:hover {
+  border-left-color: var(--secondary);
+  transform: translateX(4px);
+}
+.reg .big {
+  position: relative;
+  font-size: 17px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.rules > :nth-child(even) > h3 > span {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.rules > :nth-child(odd) > h3 > span {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.reg .rule h3 {
+  position: relative;
+  font-size: 17px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--primary);
+}
+.reg .rule p {
+  position: relative;
+  font-size: 14px;
+  color: var(--mute);
+  margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+  .reg .wrap {
+    padding: 0px 30px;
+  }
+}

@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+      @media only screen and (max-width: 620px) {
+        .container {
+          width: 100% !important;
+        }
+        .px {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+        .label-cell,
+        .value-cell {
+          display: block !important;
+          width: 100% !important;
+        }
+        .label-cell {
+          padding-bottom: 2px !important;
+        }
+        .value-cell {
+          padding-top: 0 !important;
+        }
+      }
+    </style>
+    <title>New membership application from {{title}} {{fullName}}</title>
+    <!--[if mso]>
+      <style>
+        table,
+        td {
+          font-family: Arial, Helvetica, sans-serif !important;
+        }
+      </style>
+    <![endif]-->
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #eef1f5;
+      -webkit-text-size-adjust: 100%;
+    "
+  >
+    <div
+      style="
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        color: #eef1f5;
+      "
+    >
+      {{title}} {{fullName}} ({{memberCategory}}, {{country}}) submitted a
+      membership application.
+    </div>
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      style="background-color: #eef1f5"
+    >
+      <tr>
+        <td align="center" style="padding: 32px 12px">
+          <table
+            role="presentation"
+            class="container"
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            style="width: 600px; max-width: 600px"
+          >
+            <tr>
+              <td
+                class="px"
+                style="
+                  background-color: #010ba8;
+                  padding: 28px 36px;
+                  border-radius: 10px 10px 0 0;
+                "
+              >
+                <p
+                  style="
+                    margin: 0 0 6px 0;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                    font-size: 13px;
+                    color: #c7cbff;
+                  "
+                >
+                  WCMRP
+                </p>
+                <h1
+                  style="
+                    margin: 0;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                    font-size: 24px;
+                    line-height: 32px;
+                    font-weight: 600;
+                    color: #ffffff;
+                  "
+                >
+                  New membership application
+                </h1>
+              </td>
+            </tr>
+            <tr>
+              <td
+                height="4"
+                style="
+                  height: 4px;
+                  line-height: 4px;
+                  font-size: 0;
+                  background-color: #fe9a00;
+                "
+              >
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="px"
+                style="
+                  background-color: #ffffff;
+                  padding: 32px 36px 12px 36px;
+                  font-family:
+                    &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                "
+              >
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 15px;
+                    line-height: 26px;
+                    color: #3b4558;
+                  "
+                >
+                  <strong style="color: #010ba8">{{title}} {{fullName}}</strong>
+                  applied on {{createdAt}}. Review the details below.
+                </p>
+                <p
+                  style="
+                    margin: 28px 0 4px 0;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #010ba8;
+                  "
+                >
+                  Applicant
+                </p>
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                  "
+                >
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Name
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{title}} {{fullName}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Email
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      <a
+                        href="mailto:{{email}}"
+                        style="color: #010ba8; text-decoration: none"
+                        >{{email}}</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Phone
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      <a
+                        href="tel:{{phone}}"
+                        style="color: #010ba8; text-decoration: none"
+                        >{{phone}}</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Country
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{country}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Member category
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{memberCategory}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Status
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      <span
+                        style="
+                          display: inline-block;
+                          padding: 3px 12px;
+                          border-radius: 12px;
+                          background-color: #fe9a00;
+                          color: #2b1700;
+                          font-size: 13px;
+                          font-weight: 600;
+                        "
+                        >{{status}}</span
+                      >
+                    </td>
+                  </tr>
+                </table>
+                <p
+                  style="
+                    margin: 28px 0 4px 0;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #010ba8;
+                  "
+                >
+                  Professional background
+                </p>
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                  "
+                >
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Organization
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{organization}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Department
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{department}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Qualification
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{qualification}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Professional experience
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{professionalExperience}} years
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Industry experience
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{industryExperience}} years
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Specialization
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{specialization}}
+                    </td>
+                  </tr>
+                </table>
+                <p
+                  style="
+                    margin: 28px 0 4px 0;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #010ba8;
+                  "
+                >
+                  Research profile
+                </p>
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                  "
+                >
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      CERADA associated
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{ceradaAssociated}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      h-index
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{hIndex}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Scopus publications
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{scopusPublications}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      SCI publications
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{sciPublications}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Editor / reviewer
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{editorReviewer}}
+                    </td>
+                  </tr>
+                </table>
+                <p
+                  style="
+                    margin: 28px 0 4px 0;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #010ba8;
+                  "
+                >
+                  Other
+                </p>
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-family:
+                      &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                  "
+                >
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      Found the event via
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      {{foundEventVia}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="label-cell"
+                      width="170"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #6b7689;
+                      "
+                    >
+                      CV
+                    </td>
+                    <td
+                      class="value-cell"
+                      valign="top"
+                      style="
+                        padding: 10px 0;
+                        border-top: 1px solid #e3e7ed;
+                        border-bottom: 1px solid #e3e7ed;
+                        color: #010ba8;
+                      "
+                    >
+                      <a
+                        href="{{cvUrl}}"
+                        style="color: #010ba8; text-decoration: underline"
+                        >{{cvFile.originalName}}</a
+                      ><br /><span style="color: #6b7689; font-size: 12px"
+                        >{{cvSize}}</span
+                      >
+                    </td>
+                  </tr>
+                </table>
+                <table
+                  role="presentation"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="margin: 28px 0"
+                >
+                  <tr>
+                    <td style="border-radius: 6px; background-color: #010ba8">
+                      <a
+                        href="mailto:{{email}}?subject=Re:%20Your%20WCMRP%20membership%20application"
+                        style="
+                          display: inline-block;
+                          padding: 13px 26px;
+                          font-family:
+                            &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                          font-size: 15px;
+                          font-weight: 600;
+                          color: #ffffff;
+                          text-decoration: none;
+                        "
+                        >Reply to {{fullName}}</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="px"
+                style="
+                  background-color: #f5f7fa;
+                  padding: 18px 36px;
+                  border-radius: 0 0 10px 10px;
+                  border-top: 1px solid #e3e7ed;
+                  font-family:
+                    &quot;Poppins&quot;, Arial, Helvetica, sans-serif;
+                  font-size: 12px;
+                  line-height: 18px;
+                  color: #8791a3;
+                "
+              >
+                Application ID: {{_id}}<br />Automated notification from the
+                WCMRP membership form.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

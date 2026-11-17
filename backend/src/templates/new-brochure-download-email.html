@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    @media only screen and (max-width: 620px) {
+      .container { width: 100% !important; }
+      .px { padding-left: 20px !important; padding-right: 20px !important; }
+      .label-cell, .value-cell { display: block !important; width: 100% !important; }
+      .label-cell { padding-bottom: 2px !important; }
+      .value-cell { padding-top: 0 !important; }
+    }
+  </style>
+  <title>New brochure download by {{fullName}}</title>
+  <!--[if mso]>
+  <style>table, td { font-family: Arial, Helvetica, sans-serif !important; }</style>
+  <![endif]-->
+</head>
+<body style="margin:0; padding:0; background-color:#EEF1F5; -webkit-text-size-adjust:100%;">
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#EEF1F5;">{{fullName}} downloaded the brochure. Found us via {{discoverySource}}.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EEF1F5;">
+    <tr><td align="center" style="padding:32px 12px;">
+      <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+        <tr>
+          <td class="px" style="background-color:#010ba8; padding:28px 36px; border-radius:10px 10px 0 0;">
+            <p style="margin:0 0 6px 0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:13px; color:#C7CBFF;">WCMRP</p>
+            <h1 style="margin:0; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:24px; line-height:32px; font-weight:600; color:#FFFFFF;">Brochure downloaded</h1>
+          </td>
+        </tr>
+        <tr><td height="4" style="height:4px; line-height:4px; font-size:0; background-color:#fe9a00;">&nbsp;</td></tr>
+        <tr>
+          <td class="px" style="background-color:#FFFFFF; padding:32px 36px 12px 36px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+            <p style="margin:0 0 16px 0; font-size:15px; line-height:26px; color:#3B4558;"><strong style="color:#010ba8;">{{fullName}}</strong> downloaded the brochure on {{createdAt}}. Their details are below for follow-up.</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px; line-height:22px; margin-top:24px; font-family:'Poppins', Arial, Helvetica, sans-serif;">
+              <tr>
+                <td class="label-cell" width="150" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Full name</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;">{{fullName}}</td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="150" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Email</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="mailto:{{email}}" style="color:#010ba8; text-decoration:none;">{{email}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="150" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Phone</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="tel:{{phone}}" style="color:#010ba8; text-decoration:none;">{{phone}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="150" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#6B7689;">Social media</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; color:#010ba8;"><a href="{{socialMediaLink}}" style="color:#010ba8; text-decoration:underline; word-break:break-all;">{{socialMediaLink}}</a></td>
+              </tr>
+              <tr>
+                <td class="label-cell" width="150" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#6B7689;">Found us via</td>
+                <td class="value-cell" valign="top" style="padding:10px 0; border-top:1px solid #E3E7ED; border-bottom:1px solid #E3E7ED; color:#010ba8;">{{discoverySource}}</td>
+              </tr>
+            </table>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:28px 0;">
+              <tr><td style="border-radius:6px; background-color:#010ba8;">
+                <a href="mailto:{{email}}?subject=Re:%20The%20WCMRP%20brochure" style="display:inline-block; padding:13px 26px; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#FFFFFF; text-decoration:none;">Reply to {{fullName}}</a>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="px" style="background-color:#F5F7FA; padding:18px 36px; border-radius:0 0 10px 10px; border-top:1px solid #E3E7ED; font-family:'Poppins', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#8791A3;">Download ID: {{_id}}<br>Automated notification from the WCMRP website.</td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

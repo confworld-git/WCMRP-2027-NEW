@@ -1,0 +1,275 @@
+.paper_img > div {
+  padding: 40px;
+}
+
+.paper_img {
+  background-image: url(../assets/Images/faq.jpg);
+  background-position: 60px -120px;
+}
+
+.paper_submission_section {
+  padding: clamp(24px, 5vw, 64px) 20px;
+  background:
+    radial-gradient(circle at 8% 12%, rgb(1 11 168 / 5%), transparent 26rem),
+    #f6f8fc;
+}
+
+.paper_submission_form {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 44px);
+  border: 1px solid #e4e9f2;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 18px 50px rgb(16 24 40 / 8%);
+}
+
+.paper_submission_fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 24px;
+}
+
+.paper_submission_group {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  min-width: 0;
+  margin: 0;
+}
+
+.paper_submission_full {
+  grid-column: 1 / -1;
+}
+
+.paper_submission_group > label,
+.paper_submission_choice > legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+}
+
+.paper_submission_group > label > svg,
+.paper_submission_choice > legend > svg {
+  flex: 0 0 auto;
+  color: var(--secondary);
+}
+
+.paper_submission_group > input:not([type="radio"]),
+.paper_submission_group > select,
+.paper_submission_group > textarea,
+.paper_submission_group .PhoneInput {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  box-sizing: border-box;
+  border: 1px solid #d5dce8;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #172033;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.paper_submission_group > input:not([type="radio"]),
+.paper_submission_group > select,
+.paper_submission_group > textarea {
+  padding: 12px 14px;
+}
+
+.paper_submission_group > textarea {
+  /* min-height: 120px; */
+  resize: vertical;
+}
+
+.paper_submission_group > input::placeholder,
+.paper_submission_group > textarea::placeholder,
+.paper_submission_group .PhoneInputInput::placeholder {
+  color: #98a2b3;
+}
+
+.paper_submission_group > input:not([type="radio"]):focus,
+.paper_submission_group > select:focus,
+.paper_submission_group > textarea:focus,
+.paper_submission_group .PhoneInput:focus-within {
+  border-color: var(--secondary);
+  outline: none;
+  box-shadow: 0 0 0 4px rgb(254 154 0 / 14%);
+}
+
+.paper_submission_group .PhoneInput {
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+}
+
+.paper_submission_group .PhoneInputCountry {
+  margin: 0 10px 0 0;
+}
+
+.paper_submission_group .PhoneInputInput {
+  min-width: 0;
+  height: 46px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+}
+
+.paper_submission_group .PhoneInputInput:focus {
+  outline: 0;
+}
+
+.paper_submission_choice {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #e4e9f2;
+  border-radius: 12px;
+  background: #fbfcff;
+}
+
+.paper_submission_choice > legend {
+  padding: 0 5px;
+}
+
+.paper_submission_choice > label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid #e4e9f2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #344054;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.paper_submission_choice > label:has(input:checked) {
+  border-color: var(--primary);
+  background: #f1f3ff;
+  color: var(--primary);
+}
+
+.paper_submission_choice input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--primary);
+}
+
+.paper_submission_upload > input[type="file"] {
+  padding: 9px;
+  border-style: dashed;
+  background: #fbfcff;
+  cursor: pointer;
+}
+
+.paper_submission_upload > input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: #eef0ff;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.paper_submission_group > small {
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.paper_submission_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  margin-top: 28px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgb(1 11 168 / 18%);
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.paper_submission_button:hover {
+  transform: translateY(-2px);
+  background: #000984;
+  box-shadow: 0 12px 24px rgb(1 11 168 / 23%);
+}
+
+.paper_submission_button:focus-visible {
+  outline: 3px solid rgb(254 154 0 / 65%);
+  outline-offset: 3px;
+}
+
+.paper_submission_status {
+  margin: 14px 0 0;
+  color: #344054;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .paper_submission_section {
+    padding: 24px 14px;
+  }
+
+  .paper_submission_form {
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .paper_submission_fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .paper_submission_full {
+    grid-column: auto;
+  }
+
+  .paper_submission_button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper_submission_group > input,
+  .paper_submission_group > select,
+  .paper_submission_group > textarea,
+  .paper_submission_group .PhoneInput,
+  .paper_submission_choice > label,
+  .paper_submission_button {
+    transition: none;
+  }
+}
