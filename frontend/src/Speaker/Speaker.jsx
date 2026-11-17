@@ -1,6 +1,5 @@
 import "./Speaker.css";
 import { Link } from "react-router-dom";
-import vicky from "../assets/Images/vicky.jpeg";
 
 export const Skeleton = () => {
   return (
@@ -40,12 +39,12 @@ const Speaker = () => {
           <span className="mini_head">Distinguished Roles</span>
           <h1 className="main_head bottom_bar_left">Keynote Speakers</h1>
           <section className="keynote_speaker">
-            <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            {/* <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
               <img src={vicky} alt="" />
-              <h1>Vigneshwaran K</h1>
-              <p>Professional full-stack web developer,</p>
-              <p>GKM Institute of Marine Science and Technology, chennai.</p>
-            </div>
+              <h1> K</h1>
+              <p></p>
+              <p></p>
+            </div> */}
             <Skeleton />
           </section>
         </div>

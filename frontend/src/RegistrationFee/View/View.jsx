@@ -89,11 +89,11 @@ const View = () => {
             id="package-inclusions-dialog"
             role="dialog"
             aria-modal="true"
-            aria-labelledby="ps-title"
+            aria-labelledby="ps-titles"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="ps-header">
-              <h2 id="ps-title" className="ps-title">
+              <h2 id="ps-title" className="ps-titles">
                 What's Included in Our Publication Support?
               </h2>
               <p className="ps-subtitle">

@@ -1,11 +1,13 @@
 import "./Committee.css";
 import { Link } from "react-router-dom";
-import vicky from "../../assets/Images/vicky.jpeg";
 
 export const Skeleton = () => {
   return (
-    <div className="speaker_card_skeleton" data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+    <div
+      className="speaker_card_skeleton"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+    >
       <div className="skeleton_image"></div>
       <div className="skeleton_line skeleton_name"></div>
       <div className="skeleton_line skeleton_text"></div>
@@ -32,19 +34,22 @@ const Committee = () => {
           </p>
         </div>
       </div>
-      <section className="speackers_list" data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+      <section
+        className="speackers_list"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+      >
         <div>
           <span className="mini_head">Committee Division</span>
           <h1 className="main_head bottom_bar_left">Scientific Committee</h1>
           <section className="keynote_speaker">
-            <div data-aos="fade-up"
+            {/* <div data-aos="fade-up"
      data-aos-anchor-placement="top-bottom">
               <img src={vicky} alt="" />
-              <h1>Vigneshwaran K</h1>
-              <p>Professional full-stack web developer,</p>
-              <p>GKM Institute of Marine Science and Technology, chennai.</p>
-            </div>
+              <h1></h1>
+              <p></p>
+              <p></p>
+            </div> */}
             <Skeleton />
           </section>
         </div>

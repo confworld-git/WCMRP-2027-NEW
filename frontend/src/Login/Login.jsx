@@ -295,8 +295,8 @@ const Login = ({ onLogin }) => {
     <main className="login">
       <InteractiveField />
       <section className="login-hero">
-        <h1>Run your whole workspace from one place.</h1>
-        <p>Sign in to manage people, content and settings.</p>
+        <h1>Welcome <br/> back</h1>
+        <p>Sign in to manage content and settings</p>
       </section>
 
       <section className="login-card" aria-labelledby="login-title">

@@ -293,7 +293,7 @@ const Navbar = () => {
             </Link>
           </li>
 
-          <li className="nav-item" style={{ display: "none" }}>
+          <li className="nav-item" style={{ display: "block" }}>
             {/* style={{ display: "none" }} */}
             <button onClick={() => navigate("/login")}>
               <MdOutlinePerson aria-hidden="true" />
