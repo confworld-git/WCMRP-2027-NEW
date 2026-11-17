@@ -3,6 +3,7 @@ import Contact from "../models/Contact.js";
 import CommitteeApplication from "../models/CommitteeApplication.js";
 import PaperSubmission from "../models/PaperSubmission.js";
 import RegistrationPayment from "../models/RegistrationPayment.js";
+import BrochureRequest from "../models/BrochureRequest.js";
 import {
   ADMIN_SESSION_COOKIE_NAME,
   getAdminCookieOptions,
@@ -97,11 +98,13 @@ export const getAdminDashboard = async (_req, res) => {
     contactRequests,
     committeeApplications,
     registrationPayments,
+    brochureDownloads,
   ] = await Promise.all([
     PaperSubmission.countDocuments({ archivedAt: null }),
     Contact.countDocuments({ archivedAt: null }),
     CommitteeApplication.countDocuments({ archivedAt: null }),
     RegistrationPayment.countDocuments(),
+    BrochureRequest.countDocuments(),
   ]);
 
   return res.status(200).json({
@@ -111,6 +114,7 @@ export const getAdminDashboard = async (_req, res) => {
       contactRequests,
       committeeApplications,
       registrationPayments,
+      brochureDownloads,
     },
   });
 };

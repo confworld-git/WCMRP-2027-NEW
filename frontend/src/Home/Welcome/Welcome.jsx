@@ -19,9 +19,9 @@ const Welcome = () => {
         <p>
           Welcome to the 3<sup>rd</sup> World Conference on Multidisciplinary Research and
           Practice (WCMRP-2027). This premier international conference brings
-          together leading scholars, researchers, engineers, and practitioners
+          together leading scholars, researchers, engineers and practitioners
           from around the globe to share breakthrough research, exchange
-          pioneering ideas, and address critical challenges across diverse
+          pioneering ideas and address critical challenges across diverse
           academic fields.
           <br />
           <br />

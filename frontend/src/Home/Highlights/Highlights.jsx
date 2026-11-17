@@ -106,13 +106,13 @@ const Highlights = () => {
             <h1 style={{fontSize:"30px"}}>CERADA Awards</h1>
             <p>
               The CERADA Awards recognize and celebrate outstanding achievements
-              in research, innovation, leadership, and professional
+              in research, innovation, leadership and professional
               contribution. These prestigious awards honor individuals who
-              demonstrate excellence, originality, and meaningful impact within
+              demonstrate excellence, originality and meaningful impact within
               their respective fields. Through the CERADA Awards, exceptional
-              researchers, scholars, professionals, and innovators are
+              researchers, scholars, professionals and innovators are
               acknowledged for their dedication to advancing knowledge,
-              developing innovative ideas, inspiring others, and making valuable
+              developing innovative ideas, inspiring others and making valuable
               contributions to the academic and professional community.
             </p>
             <span style={{marginTop:"10px"}}>Prestigious Award</span>

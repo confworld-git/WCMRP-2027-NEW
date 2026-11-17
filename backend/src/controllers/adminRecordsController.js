@@ -3,6 +3,7 @@ import Contact from "../models/Contact.js";
 import CommitteeApplication from "../models/CommitteeApplication.js";
 import PaperSubmission from "../models/PaperSubmission.js";
 import RegistrationPayment from "../models/RegistrationPayment.js";
+import BrochureRequest from "../models/BrochureRequest.js";
 
 const RECORD_TYPES = {
   contacts: {
@@ -106,6 +107,18 @@ const RECORD_TYPES = {
       "status",
       "paidAt",
     ],
+  },
+  brochures: {
+    model: BrochureRequest,
+    searchable: [
+      "fullName",
+      "email",
+      "phone",
+      "socialMediaLink",
+      "discoverySource",
+    ],
+    archiveable: false,
+    editable: [],
   },
 };
 
@@ -357,11 +370,23 @@ export const setAdminRecordArchived = async (req, res, next) => {
   }
 };
 
-export const deleteAdminRegistration = async (req, res, next) => {
-  if (req.params.type !== "registrations") {
+export const deleteAdminRecord = async (req, res, next) => {
+  const deletableRecords = {
+    registrations: {
+      model: RegistrationPayment,
+      label: "Registration record",
+    },
+    brochures: {
+      model: BrochureRequest,
+      label: "Brochure request",
+    },
+  };
+  const recordType = deletableRecords[req.params.type];
+
+  if (!recordType) {
     return res.status(400).json({
       success: false,
-      message: "Only registration records can be deleted.",
+      message: "This record type cannot be deleted.",
     });
   }
   if (!mongoose.isValidObjectId(req.params.id)) {
@@ -372,16 +397,16 @@ export const deleteAdminRegistration = async (req, res, next) => {
   }
 
   try {
-    const record = await RegistrationPayment.findByIdAndDelete(req.params.id);
+    const record = await recordType.model.findByIdAndDelete(req.params.id);
     if (!record) {
       return res.status(404).json({
         success: false,
-        message: "Registration record not found.",
+        message: `${recordType.label} not found.`,
       });
     }
     return res.status(200).json({
       success: true,
-      message: "Registration record deleted.",
+      message: `${recordType.label} deleted.`,
     });
   } catch (error) {
     return next(error);

@@ -6,6 +6,7 @@ import {
   ChevronLeft,
   ChevronRight,
   CreditCard,
+  Download,
   FileText,
   LayoutDashboard,
   LogOut,
@@ -47,10 +48,21 @@ const SECTIONS = {
     title: "Paper submissions",
     statusOptions: ["Submitted", "In Review", "Accepted", "Rejected"],
   },
+  brochures: {
+    label: "Brochure downloads",
+    icon: Download,
+    title: "Brochure downloads",
+    statusOptions: [],
+    archiveable: false,
+    deletable: true,
+    readOnly: true,
+  },
   registrations: {
     label: "Registrations",
     icon: CreditCard,
     title: "Registration payments",
+    archiveable: false,
+    deletable: true,
     statusOptions: [
       "created",
       "pending",
@@ -390,6 +402,7 @@ const getPrimary = (type, record) => {
   if (type === "contacts") return record.fullName;
   if (type === "committees") return record.fullName;
   if (type === "papers") return record.paperTitle;
+  if (type === "brochures") return record.fullName;
   return `${record.registration?.firstName || ""} ${record.registration?.lastName || ""}`.trim();
 };
 
@@ -397,6 +410,7 @@ const getSecondary = (type, record) => {
   if (type === "contacts") return record.email;
   if (type === "committees") return record.email;
   if (type === "papers") return `${record.authorName} · ${record.paperId}`;
+  if (type === "brochures") return record.email;
   return record.registration?.email || record.orderId;
 };
 
@@ -408,6 +422,9 @@ const getDetail = (type, record) => {
   if (type === "papers") {
     return `${record.submissionType} · ${record.presentationType} presentation`;
   }
+  if (type === "brochures") {
+    return record.phone;
+  }
   return new Intl.NumberFormat(undefined, {
     style: "currency",
     currency: record.currency || "USD",
@@ -416,6 +433,9 @@ const getDetail = (type, record) => {
 
 const getStatusClass = (status = "") =>
   `admin-status admin-status--${status.toLowerCase().replace(/[^a-z]+/g, "-")}`;
+
+const getRecordStatus = (type, record) =>
+  type === "brochures" ? "Downloaded" : record.status;
 
 const Dashboard = () => {
   const { logout } = useAdminAuth();
@@ -545,6 +565,13 @@ const Dashboard = () => {
         section: "registrations",
         accent: "green",
       },
+      {
+        key: "brochureDownloads",
+        label: "Brochure downloads",
+        icon: Download,
+        section: "brochures",
+        accent: "blue",
+      },
     ],
     [],
   );
@@ -638,21 +665,26 @@ const Dashboard = () => {
     }
   };
 
-  const handleDeleteRegistration = async (record) => {
+  const handleDeleteRecord = async (record) => {
+    const recordLabel =
+      activeSection === "brochures" ? "brochure request" : "registration";
     if (
       !window.confirm(
-        `Permanently delete the registration for ${getPrimary(activeSection, record)}? This cannot be undone.`,
+        `Permanently delete the ${recordLabel} for ${getPrimary(activeSection, record)}? This cannot be undone.`,
       )
     ) {
       return;
     }
     try {
-      await adminApi.delete(`/api/admin/records/registrations/${record._id}`);
-      toast.success("Registration record deleted.");
+      const { data } = await adminApi.delete(
+        `/api/admin/records/${activeSection}/${record._id}`,
+      );
+      toast.success(data.message || `${recordLabel} deleted.`);
       await Promise.all([loadRecords(), loadSummary()]);
     } catch (error) {
       toast.error(
-        error.response?.data?.message || "Could not delete this registration.",
+        error.response?.data?.message ||
+          `Could not delete this ${recordLabel}.`,
       );
     }
   };
@@ -874,22 +906,24 @@ const Dashboard = () => {
                   />
                 </label>
                 <div className="admin-toolbar__filters">
-                  <select
-                    aria-label="Filter by status"
-                    value={statusFilter}
-                    onChange={(event) => {
-                      setStatusFilter(event.target.value);
-                      setPagination((current) => ({ ...current, page: 1 }));
-                    }}
-                  >
-                    <option value="">All statuses</option>
-                    {activeSectionInfo.statusOptions.map((status) => (
-                      <option key={status} value={status}>
-                        {status}
-                      </option>
-                    ))}
-                  </select>
-                  {activeSection !== "registrations" && (
+                  {activeSectionInfo.statusOptions.length > 0 && (
+                    <select
+                      aria-label="Filter by status"
+                      value={statusFilter}
+                      onChange={(event) => {
+                        setStatusFilter(event.target.value);
+                        setPagination((current) => ({ ...current, page: 1 }));
+                      }}
+                    >
+                      <option value="">All statuses</option>
+                      {activeSectionInfo.statusOptions.map((status) => (
+                        <option key={status} value={status}>
+                          {status}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                  {activeSectionInfo.archiveable !== false && (
                     <label className="admin-archive-toggle">
                       <input
                         type="checkbox"
@@ -950,11 +984,25 @@ const Dashboard = () => {
                               {activeSection === "registrations" && (
                                 <small>Order {record.orderId}</small>
                               )}
+                              {activeSection === "brochures" && (
+                                <a
+                                  className="admin-record-link"
+                                  href={record.socialMediaLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  Social profile
+                                </a>
+                              )}
                             </div>
                           </td>
                           <td>
-                            <span className={getStatusClass(record.status)}>
-                              {record.status}
+                            <span
+                              className={getStatusClass(
+                                getRecordStatus(activeSection, record),
+                              )}
+                            >
+                              {getRecordStatus(activeSection, record)}
                             </span>
                           </td>
                           <td className="admin-record-date">
@@ -964,8 +1012,9 @@ const Dashboard = () => {
                           </td>
                           <td>
                             <div className="admin-row-actions">
-                              {(activeSection === "papers" ||
-                                activeSection === "committees") && (
+                              {!activeSectionInfo.readOnly &&
+                                (activeSection === "papers" ||
+                                  activeSection === "committees") && (
                                 <button
                                   className="admin-row-action admin-row-action--download"
                                   type="button"
@@ -975,25 +1024,33 @@ const Dashboard = () => {
                                 >
                                   <ArrowDownToLine size={16} />
                                 </button>
+                                )}
+                              {!activeSectionInfo.readOnly && (
+                                <button
+                                  className="admin-row-action"
+                                  type="button"
+                                  title="Edit record"
+                                  aria-label="Edit record"
+                                  onClick={() => setEditingRecord(record)}
+                                >
+                                  <Pencil size={16} />
+                                </button>
                               )}
-                              <button
-                                className="admin-row-action"
-                                type="button"
-                                title="Edit record"
-                                aria-label="Edit record"
-                                onClick={() => setEditingRecord(record)}
-                              >
-                                <Pencil size={16} />
-                              </button>
-                              {activeSection === "registrations" ? (
+                              {activeSectionInfo.deletable ? (
                                 <button
                                   className="admin-row-action admin-row-action--danger"
                                   type="button"
-                                  title="Permanently delete registration"
-                                  aria-label="Permanently delete registration"
-                                  onClick={() =>
-                                    handleDeleteRegistration(record)
-                                  }
+                                  title={`Permanently delete ${
+                                    activeSection === "brochures"
+                                      ? "brochure request"
+                                      : "registration"
+                                  }`}
+                                  aria-label={`Permanently delete ${
+                                    activeSection === "brochures"
+                                      ? "brochure request"
+                                      : "registration"
+                                  }`}
+                                  onClick={() => handleDeleteRecord(record)}
                                 >
                                   <Trash2 size={16} />
                                 </button>

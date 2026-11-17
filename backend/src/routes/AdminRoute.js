@@ -7,7 +7,7 @@ import {
   logoutAdmin,
 } from "../controllers/adminController.js";
 import {
-  deleteAdminRegistration,
+  deleteAdminRecord,
   downloadAdminRecordFile,
   listAdminRecords,
   setAdminRecordArchived,
@@ -62,8 +62,9 @@ router.patch(
 router.delete(
   "/records/:type/:id",
   requireAdminOrigin,
+  requireAdminOrigin,
   requireAdmin,
-  deleteAdminRegistration,
+  deleteAdminRecord,
 );
 
 export default router;
