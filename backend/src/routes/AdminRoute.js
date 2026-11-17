@@ -10,7 +10,6 @@ import {
   deleteAdminRecord,
   downloadAdminRecordFile,
   listAdminRecords,
-  setAdminRecordArchived,
   updateAdminRecord,
 } from "../controllers/adminRecordsController.js";
 import {
@@ -48,12 +47,6 @@ router.get(
   downloadAdminRecordFile,
 );
 router.patch(
-  "/records/:type/:id/archive",
-  requireAdminOrigin,
-  requireAdmin,
-  setAdminRecordArchived,
-);
-router.patch(
   "/records/:type/:id",
   requireAdminOrigin,
   requireAdmin,
@@ -61,7 +54,6 @@ router.patch(
 );
 router.delete(
   "/records/:type/:id",
-  requireAdminOrigin,
   requireAdminOrigin,
   requireAdmin,
   deleteAdminRecord,

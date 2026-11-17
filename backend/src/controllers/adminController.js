@@ -100,9 +100,9 @@ export const getAdminDashboard = async (_req, res) => {
     registrationPayments,
     brochureDownloads,
   ] = await Promise.all([
-    PaperSubmission.countDocuments({ archivedAt: null }),
-    Contact.countDocuments({ archivedAt: null }),
-    CommitteeApplication.countDocuments({ archivedAt: null }),
+    PaperSubmission.countDocuments(),
+    Contact.countDocuments(),
+    CommitteeApplication.countDocuments(),
     RegistrationPayment.countDocuments(),
     BrochureRequest.countDocuments(),
   ]);

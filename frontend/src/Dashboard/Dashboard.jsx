@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Archive,
   ArrowDownToLine,
   ChevronLeft,
   ChevronRight,
@@ -13,7 +12,6 @@ import {
   MessageSquareText,
   Pencil,
   RefreshCw,
-  RotateCcw,
   Search,
   Trash2,
   UsersRound,
@@ -34,18 +32,21 @@ const SECTIONS = {
     label: "Contact requests",
     icon: MessageSquareText,
     title: "Contact requests",
+    deletable: true,
     statusOptions: ["Pending", "In Progress", "Resolved", "Closed"],
   },
   committees: {
     label: "Committee forms",
     icon: UsersRound,
     title: "Committee applications",
+    deletable: true,
     statusOptions: ["Pending", "In Review", "Accepted", "Rejected"],
   },
   papers: {
     label: "Paper submissions",
     icon: FileText,
     title: "Paper submissions",
+    deletable: true,
     statusOptions: ["Submitted", "In Review", "Accepted", "Rejected"],
   },
   brochures: {
@@ -53,7 +54,6 @@ const SECTIONS = {
     icon: Download,
     title: "Brochure downloads",
     statusOptions: [],
-    archiveable: false,
     deletable: true,
     readOnly: true,
   },
@@ -61,7 +61,6 @@ const SECTIONS = {
     label: "Registrations",
     icon: CreditCard,
     title: "Registration payments",
-    archiveable: false,
     deletable: true,
     statusOptions: [
       "created",
@@ -369,6 +368,14 @@ const FIELD_SETS = {
   ],
 };
 
+const RECORD_LABELS = {
+  contacts: "contact request",
+  committees: "committee application",
+  papers: "paper submission",
+  brochures: "brochure request",
+  registrations: "registration",
+};
+
 const getValue = (record, path) => {
   const value = path
     .split(".")
@@ -449,7 +456,6 @@ const Dashboard = () => {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
-  const [showArchived, setShowArchived] = useState(false);
   const [editingRecord, setEditingRecord] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -479,7 +485,6 @@ const Dashboard = () => {
               limit: 25,
               search: debouncedSearch,
               status: statusFilter,
-              archived: showArchived,
             },
             signal,
           },
@@ -506,7 +511,6 @@ const Dashboard = () => {
       activeSection,
       debouncedSearch,
       pagination.page,
-      showArchived,
       statusFilter,
     ],
   );
@@ -582,7 +586,6 @@ const Dashboard = () => {
     setSearch("");
     setDebouncedSearch("");
     setStatusFilter("");
-    setShowArchived(false);
     setEditingRecord(null);
   };
 
@@ -641,33 +644,8 @@ const Dashboard = () => {
     }
   };
 
-  const handleArchive = async (record) => {
-    const archived = !record.archivedAt;
-    const action = archived ? "archive" : "restore";
-    if (
-      !window.confirm(
-        `${archived ? "Archive" : "Restore"} ${getPrimary(activeSection, record)}?`,
-      )
-    ) {
-      return;
-    }
-    try {
-      await adminApi.patch(
-        `/api/admin/records/${activeSection}/${record._id}/archive`,
-        { archived },
-      );
-      toast.success(`Record ${archived ? "archived" : "restored"}.`);
-      await Promise.all([loadRecords(), loadSummary()]);
-    } catch (error) {
-      toast.error(
-        error.response?.data?.message || `Could not ${action} this record.`,
-      );
-    }
-  };
-
   const handleDeleteRecord = async (record) => {
-    const recordLabel =
-      activeSection === "brochures" ? "brochure request" : "registration";
+    const recordLabel = RECORD_LABELS[activeSection];
     if (
       !window.confirm(
         `Permanently delete the ${recordLabel} for ${getPrimary(activeSection, record)}? This cannot be undone.`,
@@ -923,19 +901,6 @@ const Dashboard = () => {
                       ))}
                     </select>
                   )}
-                  {activeSectionInfo.archiveable !== false && (
-                    <label className="admin-archive-toggle">
-                      <input
-                        type="checkbox"
-                        checked={showArchived}
-                        onChange={(event) => {
-                          setShowArchived(event.target.checked);
-                          setPagination((current) => ({ ...current, page: 1 }));
-                        }}
-                      />
-                      <span>Archived</span>
-                    </label>
-                  )}
                 </div>
               </div>
 
@@ -1036,41 +1001,15 @@ const Dashboard = () => {
                                   <Pencil size={16} />
                                 </button>
                               )}
-                              {activeSectionInfo.deletable ? (
+                              {activeSectionInfo.deletable && (
                                 <button
                                   className="admin-row-action admin-row-action--danger"
                                   type="button"
-                                  title={`Permanently delete ${
-                                    activeSection === "brochures"
-                                      ? "brochure request"
-                                      : "registration"
-                                  }`}
-                                  aria-label={`Permanently delete ${
-                                    activeSection === "brochures"
-                                      ? "brochure request"
-                                      : "registration"
-                                  }`}
+                                  title={`Permanently delete ${RECORD_LABELS[activeSection]}`}
+                                  aria-label={`Permanently delete ${RECORD_LABELS[activeSection]}`}
                                   onClick={() => handleDeleteRecord(record)}
                                 >
                                   <Trash2 size={16} />
-                                </button>
-                              ) : (
-                                <button
-                                  className="admin-row-action"
-                                  type="button"
-                                  title={
-                                    record.archivedAt ? "Restore" : "Archive"
-                                  }
-                                  aria-label={
-                                    record.archivedAt ? "Restore" : "Archive"
-                                  }
-                                  onClick={() => handleArchive(record)}
-                                >
-                                  {record.archivedAt ? (
-                                    <RotateCcw size={16} />
-                                  ) : (
-                                    <Archive size={16} />
-                                  )}
                                 </button>
                               )}
                             </div>

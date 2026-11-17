@@ -160,9 +160,7 @@ const About = () => {
 
         <div className="redirection_link">
           <h1>Ready to contribute? Submit your paper and join WCMRP-2027.</h1>
-          <a href="">
-            Submit Paper
-          </a>
+          <a href="/abstract-full-paper-submission">Submit Paper</a>
         </div>
       </div>
     </>

@@ -9,7 +9,6 @@ const RECORD_TYPES = {
   contacts: {
     model: Contact,
     searchable: ["fullName", "email", "serviceRequired", "message"],
-    archiveable: true,
     editable: [
       "fullName",
       "email",
@@ -23,7 +22,6 @@ const RECORD_TYPES = {
   committees: {
     model: CommitteeApplication,
     searchable: ["fullName", "email", "organization", "memberCategory"],
-    archiveable: true,
     editable: [
       "title",
       "fullName",
@@ -49,7 +47,6 @@ const RECORD_TYPES = {
   papers: {
     model: PaperSubmission,
     searchable: ["paperId", "paperTitle", "authorName", "email"],
-    archiveable: true,
     editable: [
       "paperTitle",
       "authorName",
@@ -81,7 +78,6 @@ const RECORD_TYPES = {
       "orderId",
       "paymentId",
     ],
-    archiveable: false,
     editable: [
       "registration.title",
       "registration.firstName",
@@ -117,7 +113,6 @@ const RECORD_TYPES = {
       "socialMediaLink",
       "discoverySource",
     ],
-    archiveable: false,
     editable: [],
   },
 };
@@ -242,10 +237,6 @@ export const listAdminRecords = async (req, res, next) => {
     typeof req.query.search === "string" ? req.query.search.trim().slice(0, 100) : "";
   const filter = makeSearchFilter(config.searchable, search);
 
-  if (config.archiveable) {
-    filter.archivedAt =
-      req.query.archived === "true" ? { $ne: null } : null;
-  }
   if (typeof req.query.status === "string" && req.query.status) {
     filter.status = req.query.status;
   }
@@ -328,50 +319,20 @@ export const updateAdminRecord = async (req, res, next) => {
   }
 };
 
-export const setAdminRecordArchived = async (req, res, next) => {
-  const resolved = resolveRecord(req.params.type, req.params.id);
-  if (resolved.error) {
-    return res.status(400).json({
-      success: false,
-      message: resolved.error,
-    });
-  }
-  if (!resolved.config.archiveable) {
-    return res.status(400).json({
-      success: false,
-      message: "This record type cannot be archived.",
-    });
-  }
-  if (typeof req.body?.archived !== "boolean") {
-    return res.status(400).json({
-      success: false,
-      message: "An archive or restore action is required.",
-    });
-  }
-
-  try {
-    const record = await resolved.config.model.findByIdAndUpdate(
-      req.params.id,
-      { $set: { archivedAt: req.body.archived ? new Date() : null } },
-      { returnDocument: "after", runValidators: true },
-    );
-    if (!record) {
-      return res.status(404).json({
-        success: false,
-        message: "Record not found.",
-      });
-    }
-    return res.status(200).json({
-      success: true,
-      message: req.body.archived ? "Record archived." : "Record restored.",
-    });
-  } catch (error) {
-    return next(error);
-  }
-};
-
 export const deleteAdminRecord = async (req, res, next) => {
   const deletableRecords = {
+    contacts: {
+      model: Contact,
+      label: "Contact request",
+    },
+    committees: {
+      model: CommitteeApplication,
+      label: "Committee application",
+    },
+    papers: {
+      model: PaperSubmission,
+      label: "Paper submission",
+    },
     registrations: {
       model: RegistrationPayment,
       label: "Registration record",

@@ -578,19 +578,6 @@
   padding: 0 28px 0 10px;
 }
 
-.admin-archive-toggle {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: #6f7387;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.admin-archive-toggle input {
-  accent-color: var(--admin-primary);
-}
-
 .admin-table-wrap {
   overflow-x: auto;
 }
