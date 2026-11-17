@@ -400,103 +400,111 @@ const Organizer = () => {
               data-aos-anchor-placement="top-bottom"
             >
               <div>
-                <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-globe-check preview-icon"
-                  >
-                    <path d="m15 6 2 2 4-4" />
-                    <path d="M2 12h20A10 10 0 1 1 12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 4-10" />
-                  </svg>
-                </i>
-                <h1>International Conferences</h1>
+                <h1>
+                  <i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-globe-check preview-icon"
+                    >
+                      <path d="m15 6 2 2 4-4" />
+                      <path d="M2 12h20A10 10 0 1 1 12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 4-10" />
+                    </svg>
+                  </i>
+                  International Conferences
+                </h1>
                 <p>
                   Top-tier global platforms for researchers to present work,
                   share ideas and network across disciplines.
                 </p>
               </div>
               <div>
-                <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-book-open-check preview-icon"
-                  >
-                    <path d="M12 5v16" />
-                    <path d="m16 12 2 2 4-4" />
-                    <path d="M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344" />
-                  </svg>
-                </i>
-                <h1>Publication Services</h1>
+                <h1>
+                  <i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-book-open-check preview-icon"
+                    >
+                      <path d="M12 5v16" />
+                      <path d="m16 12 2 2 4-4" />
+                      <path d="M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344" />
+                    </svg>
+                  </i>
+                  Publication Services
+                </h1>
                 <p>
                   Expert support for submitting research to reputable
                   peer-reviewed journals with editing assistance.
                 </p>
               </div>
               <div>
-                <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-folder-users preview-icon"
-                  >
-                    <path d="M5.254 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2V9.255" />
-                    <circle cx="13" cy="15" r="3" />
-                    <path d="M17 22a4 4 0 0 0-8 0" />
-                    <path d="M22 22A4 4 0 0 0 20.24 18.686 1 1 0 0 1 20.1 17.143 3 3 0 0 0 19.5 12.402" />
-                  </svg>
-                </i>
-                <h1>Educational Initiatives</h1>
+                <h1>
+                  <i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-folder-users preview-icon"
+                    >
+                      <path d="M5.254 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2V9.255" />
+                      <circle cx="13" cy="15" r="3" />
+                      <path d="M17 22a4 4 0 0 0-8 0" />
+                      <path d="M22 22A4 4 0 0 0 20.24 18.686 1 1 0 0 1 20.1 17.143 3 3 0 0 0 19.5 12.402" />
+                    </svg>
+                  </i>
+                  Educational Initiatives
+                </h1>
                 <p>
                   Comprehensive programs including workshops, webinars, training
                   and faculty development.
                 </p>
               </div>
               <div>
-                <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-microscope preview-icon"
-                  >
-                    <path d="M6 18h8" />
-                    <path d="M3 22h18" />
-                    <path d="M14 22a7 7 0 1 0 0-14h-1" />
-                    <path d="M9 14h2" />
-                    <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
-                    <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
-                  </svg>
-                </i>
-                <h1>Research Innovation</h1>
+                <h1>
+                  <i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-microscope preview-icon"
+                    >
+                      <path d="M6 18h8" />
+                      <path d="M3 22h18" />
+                      <path d="M14 22a7 7 0 1 0 0-14h-1" />
+                      <path d="M9 14h2" />
+                      <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
+                      <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+                    </svg>
+                  </i>
+                  Research Innovation
+                </h1>
                 <p>
                   Fostering curiosity and advancing knowledge in engineering,
                   technology and multidisciplinary fields.

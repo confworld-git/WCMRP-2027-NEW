@@ -40,7 +40,7 @@
   flex: 1;
 }
 
-.conf_img >img{
+.conf_img > img {
   width: 100%;
   height: auto;
   border-radius: 20px;
@@ -259,12 +259,12 @@
   transform: translateY(-4px);
 }
 
-.service_list > div:hover > i {
+.service_list > div:hover i {
   background-color: var(--primary);
   color: white;
 }
 
-.service_list > div > i {
+.service_list > div > h1 > i {
   padding: 10px;
   background-color: var(--secondary);
   color: var(--primary);
@@ -278,6 +278,10 @@
 
 .service_list > div > h1 {
   font-size: 18px;
+  display: flex;
+  line-height: 20px;
+  align-items: center;
+  gap: 10px;
   color: var(--primary);
 }
 

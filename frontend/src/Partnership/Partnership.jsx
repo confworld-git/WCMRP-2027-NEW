@@ -14,6 +14,7 @@ import {
   Search,
   Send,
   UsersRound,
+  UserRound,
 } from "lucide-react";
 import conferencePhoto from "../assets/Images/66.jpg";
 import "./Partnership.css";
@@ -113,7 +114,10 @@ const partnershipContacts = [
 const Partnership = () => {
   return (
     <main className="partnership-page">
-      <section className="partnership-benefits" aria-labelledby="benefits-title">
+      <section
+        className="partnership-benefits"
+        aria-labelledby="benefits-title"
+      >
         <header className="partnership-heading">
           <span className="partnership-eyebrow">CERADA Academic Network</span>
           <h1 id="benefits-title">Benefits of Academic Partnership</h1>
@@ -219,13 +223,15 @@ const Partnership = () => {
       <section className="partnership-team" aria-labelledby="team-title">
         <header className="partnership-heading">
           <h2 id="team-title">Contact Our Partnership Team</h2>
-          <p>Reach out to discuss customized sponsorship and exhibition packages.</p>
+          <p>
+            Reach out to discuss customized sponsorship and exhibition packages.
+          </p>
         </header>
         <div className="partnership-team__grid">
           {partnershipContacts.map((contact) => (
             <article className="partnership-contact-card" key={contact.name}>
               <span className="partnership-contact-card__initial">
-                {contact.initials}
+                <UserRound />
               </span>
               <h3>{contact.name}</h3>
               <p>{contact.role}</p>

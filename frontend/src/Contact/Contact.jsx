@@ -13,8 +13,8 @@ const contactInfo = [
     icon: <FiPhone size={22} />,
     title: "Call Us",
     detail: "Support & Conference Assistance",
-    value: "+91 8220005703",
-    href: "tel:+918220005703",
+    value: "+91 8072381719",
+    href: "tel:+918072381719",
     accentClass: "phone-card",
   },
   {

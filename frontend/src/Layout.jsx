@@ -137,8 +137,8 @@ function Layout() {
       <Outlet />
       <Footer />
       <div className="floating_button">
-        <a href="/abstract-full-paper-submission">Paper submit</a>
-        <a href="/Registration-Fee">Register now</a>
+        <a href="/abstract-full-paper-submission">Submit Paper</a>
+        <a href="/Registration-Fee">Register Now</a>
       </div>
     </div>
   );

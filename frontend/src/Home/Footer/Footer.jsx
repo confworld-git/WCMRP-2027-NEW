@@ -8,24 +8,34 @@ import {
   FaWhatsapp,
 } from "react-icons/fa6";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { Link as RouterLink } from "react-router-dom";
 import logo from "../../assets/Logo/logo1.png";
 
 const quickLinks = [
   [
-    "Home",
-    "About",
-    "Available Payment",
-    "Terms & Conditions",
-    "Call for Papers",
-    "Enquiries",
+    { label: "Home", href: "/" },
+    { label: "About", href: "/About-WCMRP" },
+    { label: "Available Payment", href: "/Available-payment-methods" },
+    { label: "Terms & Conditions", href: "/Terms-and-Conditions" },
+    {
+      label: "Call for Papers",
+      href: "/Session-Tracks-&-Call-For-Papers",
+    },
+    { label: "Enquiries", href: "/contact" },
   ],
   [
-    "Instructions",
-    "Guidelines",
-    "Paper Submission",
-    "Publication",
-    "Registration Fee",
-    "Submission",
+    { label: "Instructions", href: "/Registration-Instructions" },
+    { label: "Guidelines", href: "/Submission-Guidelines" },
+    {
+      label: "Paper Submission",
+      href: "/abstract-full-paper-submission",
+    },
+    { label: "Publication", href: "/Publication" },
+    { label: "Registration Fee", href: "/Registration-Fee" },
+    {
+      label: "Submission",
+      href: "/organizing-committee-member-form",
+    },
   ],
 ];
 
@@ -92,16 +102,16 @@ const Footer = () => {
             <h3>QUICK LINKS</h3>
             <div className="footer__links">
               <ul>
-                {quickLinks[0].map((item) => (
-                  <li key={item}>
-                    <a href="#">{item}</a>
+                {quickLinks[0].map(({ label, href }) => (
+                  <li key={label}>
+                    <RouterLink to={href}>{label}</RouterLink>
                   </li>
                 ))}
               </ul>
               <ul>
-                {quickLinks[1].map((item) => (
-                  <li key={item}>
-                    <a href="#">{item}</a>
+                {quickLinks[1].map(({ label, href }) => (
+                  <li key={label}>
+                    <RouterLink to={href}>{label}</RouterLink>
                   </li>
                 ))}
               </ul>

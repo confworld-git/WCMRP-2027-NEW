@@ -7,6 +7,7 @@ import sessoion4 from "../assets/sessions/session4.png";
 import sessoion5 from "../assets/sessions/session5.png";
 import SEO from "../SEO";
 import { conferenceEventSchema, SITE_URL } from "../seoSchemas";
+import Deadline from "../Home/Deadline/Deadline.jsx";
 
 const TRACKS = [
   {
@@ -250,6 +251,7 @@ export default function CallForPapers({ accent = "#0B6E6E" }) {
           </section>
         ))}
       </div>
+      <Deadline />
     </>
   );
 }
