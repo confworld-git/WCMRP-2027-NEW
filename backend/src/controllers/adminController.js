@@ -73,13 +73,21 @@ export const getCurrentAdmin = (req, res) =>
   });
 
 export const logoutAdmin = async (req, res, next) => {
+  const clearSessionCookie = () => {
+    res.clearCookie(ADMIN_SESSION_COOKIE_NAME, getAdminCookieOptions());
+    return res.status(200).json({ success: true });
+  };
+
+  if (!req.session) {
+    return clearSessionCookie();
+  }
+
   req.session.destroy((error) => {
     if (error) {
       return next(error);
     }
 
-    res.clearCookie(ADMIN_SESSION_COOKIE_NAME, getAdminCookieOptions());
-    return res.status(200).json({ success: true });
+    return clearSessionCookie();
   });
 };
 

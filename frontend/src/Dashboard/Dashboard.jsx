@@ -806,7 +806,7 @@ const Dashboard = () => {
         <div className="admin-content">
           <div className="admin-page-heading">
             <div>
-              <p className="admin-eyebrow">WCMRP 2027 · ADMINISTRATION</p>
+              <p className="admin-eyebrow">WCMRP 2027</p>
               <h1>{activeSectionInfo.title}</h1>
             </div>
           </div>
@@ -830,7 +830,6 @@ const Dashboard = () => {
               <div className="admin-section-heading">
                 <div>
                   <h2>Activity overview</h2>
-                  <p>Active records currently in your workspace</p>
                 </div>
               </div>
               <div className="admin-metrics">

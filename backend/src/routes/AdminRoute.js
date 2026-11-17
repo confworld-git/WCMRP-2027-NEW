@@ -39,7 +39,7 @@ const loginLimiter = rateLimit({
 
 router.post("/auth/login", loginLimiter, requireAdminOrigin, loginAdmin);
 router.get("/auth/me", requireAdmin, getCurrentAdmin);
-router.post("/auth/logout", requireAdminOrigin, requireAdmin, logoutAdmin);
+router.post("/auth/logout", requireAdminOrigin, logoutAdmin);
 router.get("/dashboard", requireAdmin, getAdminDashboard);
 router.get("/records/:type", requireAdmin, listAdminRecords);
 router.get(
