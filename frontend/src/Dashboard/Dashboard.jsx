@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   ArrowDownToLine,
   ChevronLeft,
@@ -446,7 +445,6 @@ const getRecordStatus = (type, record) =>
 
 const Dashboard = () => {
   const { logout } = useAdminAuth();
-  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("overview");
   const [summary, setSummary] = useState(null);
   const [records, setRecords] = useState([]);
@@ -592,7 +590,6 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate("/", { replace: true });
     } catch (error) {
       toast.error(error.message);
     }

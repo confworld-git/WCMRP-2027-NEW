@@ -1,13 +1,10 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AdminAuthContext from "./adminAuthState";
 import adminApi from "./adminApi";
 
 export const AdminAuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [admin, setAdmin] = useState(null);
   const [status, setStatus] = useState("checking");
   const [authError, setAuthError] = useState("");
@@ -110,6 +107,7 @@ export const AdminAuthProvider = ({ children }) => {
   const logout = useCallback(async () => {
     try {
       await adminApi.post("/api/admin/auth/logout");
+      navigate("/", { replace: true });
       setAdmin(null);
       setStatus("anonymous");
     } catch (error) {
@@ -118,7 +116,7 @@ export const AdminAuthProvider = ({ children }) => {
         { cause: error },
       );
     }
-  }, []);
+  }, [navigate]);
 
   const value = useMemo(
     () => ({ admin, status, authError, login, logout, refreshSession }),

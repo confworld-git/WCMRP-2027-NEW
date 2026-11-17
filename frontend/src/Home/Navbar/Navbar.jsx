@@ -147,12 +147,18 @@ const Navbar = () => {
         <button
           className="navbar-menu-toggle"
           type="button"
-          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={mobileMenuOpen}
           aria-controls="primary-navigation"
           onClick={() => setMobileMenuOpen((open) => !open)}
         >
-          {mobileMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+          {mobileMenuOpen ? (
+            <FiX aria-hidden="true" />
+          ) : (
+            <FiMenu aria-hidden="true" />
+          )}
         </button>
         {mobileMenuOpen && (
           <button
@@ -294,7 +300,6 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item" style={{ display: "block" }}>
-            {/* style={{ display: "none" }} */}
             <button onClick={() => navigate("/login")}>
               <MdOutlinePerson aria-hidden="true" />
               Login
