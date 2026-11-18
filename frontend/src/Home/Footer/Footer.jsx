@@ -139,7 +139,7 @@ const Footer = () => {
                 <span className="footer__icon">
                   <FiMapPin />
                 </span>
-                <a href="mailto:wcmrp.cerada@gmail.com">
+                <a href="#">
                   Kuala Lumpur, Malaysia
                 </a>
               </li>

@@ -1,10 +1,7 @@
 export const ADMIN_SESSION_COOKIE_NAME = "wcmrp_admin_session";
 
 const DEFAULT_FRONTEND_ORIGINS = [
-  "http://localhost:5173",
-  "http://127.0.0.1:5173",
-  "https://wcmrp.com",
-  "https://www.wcmrp.com",
+  "https://wcmrp.confworld.org",
 ];
 
 export const getFrontendOrigins = () => {
