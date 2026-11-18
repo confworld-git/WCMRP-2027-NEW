@@ -3,7 +3,30 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-const SITE_URL = "https://wcmrp.com";
+const envFile = fs.readFileSync(
+  path.resolve(".env"),
+  "utf-8"
+);
+
+const envValues = Object.fromEntries(
+  envFile
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"))
+    .map((line) => {
+      const separatorIndex = line.indexOf("=");
+      return [
+        line.slice(0, separatorIndex).trim(),
+        line.slice(separatorIndex + 1).trim(),
+      ];
+    })
+);
+
+const SITE_URL = (
+  process.env.VITE_FRONT_END_ULR ||
+  envValues.VITE_FRONT_END_ULR ||
+  "https://wcmrp.confworld.org"
+).replace(/\/+$/, "");
 
 const dist = path.resolve("dist");
 const ssrDir = path.resolve("dist-ssr");

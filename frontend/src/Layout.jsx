@@ -25,6 +25,13 @@ const registrationEventSchema = {
 };
 
 const PAGE_METADATA = {
+  "/": {
+    title: "World Conference on Multidisciplinary Research & Practices",
+    description:
+      "Join WCMRP 2027 on 24–25 May in Kuala Lumpur, Malaysia. Present your research and connect with global scholars.",
+    keywords:
+      "WCMRP 2027, multidisciplinary research conference, international conference",
+  },
   "/contact": {
     title: "Contact WCMRP 2027",
     description:
@@ -124,23 +131,51 @@ const PAGE_METADATA = {
     keywords:
       "WCMRP 2027 paper submission, submit abstract, submit full paper, call for papers, research conference submission",
   },
+  "/login": {
+    title: "Admin Login",
+    description:
+      "Sign in to manage WCMRP 2027 conference content and settings.",
+    noIndex: true,
+  },
+  "/dashboard": {
+    title: "Admin Dashboard",
+    description:
+      "Manage WCMRP 2027 registrations, submissions, contact requests, and conference content.",
+    noIndex: true,
+  },
+  "/Payment-success-page": {
+    title: "Payment Confirmation",
+    description: "Confirmation of your WCMRP 2027 registration payment.",
+    noIndex: true,
+  },
 };
 
 function Layout() {
   const { pathname } = useLocation();
   const pageMetadata = PAGE_METADATA[pathname];
+  const isStandalonePage = [
+    "/login",
+    "/dashboard",
+    "/Payment-success-page",
+  ].includes(pathname);
 
   return (
-    <div className="public-site">
+    <>
       {pageMetadata && <SEO {...pageMetadata} path={pathname} />}
-      <Navbar />
-      <Outlet />
-      <Footer />
-      <div className="floating_button">
-        <a href="/abstract-full-paper-submission">Submit Paper</a>
-        <a href="/Registration-Fee">Register Now</a>
-      </div>
-    </div>
+      {isStandalonePage ? (
+        <Outlet />
+      ) : (
+        <div className="public-site">
+          <Navbar />
+          <Outlet />
+          <Footer />
+          <div className="floating_button">
+            <a href="/abstract-full-paper-submission">Submit Paper</a>
+            <a href="/Registration-Fee">Register Now</a>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

@@ -376,3 +376,12 @@
   margin: 0;
   text-transform: uppercase;
 }
+
+@media (max-width: 600px) {
+  .redirection_link {
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    box-sizing: border-box;
+  }
+}

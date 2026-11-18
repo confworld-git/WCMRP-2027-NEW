@@ -60,8 +60,17 @@ function App() {
         }}
       />
       <Routes>
-        <Route path="/Payment-success-page" element={<PaymentSuccess />} />
         <Route element={<Layout />}>
+          <Route path="/Payment-success-page" element={<PaymentSuccess />} />
+          <Route path="/login" element={<AdminLoginPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAdmin>
+                <Dashboard />
+              </RequireAdmin>
+            }
+          />
           <Route path="/" element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/venue" element={<Venue />} />
@@ -97,15 +106,6 @@ function App() {
             element={<CommitteeForm />}
           />
         </Route>
-        <Route path="/login" element={<AdminLoginPage />} />
-        <Route
-          path="/dashboard"
-          element={
-            <RequireAdmin>
-              <Dashboard />
-            </RequireAdmin>
-          }
-        />
       </Routes>
     </AdminAuthProvider>
   );
