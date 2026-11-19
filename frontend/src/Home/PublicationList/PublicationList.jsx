@@ -1,6 +1,6 @@
 import "./PublicationList.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 
 const PublicationList = () => {
   const publicationsList = [
@@ -194,7 +194,11 @@ const PublicationList = () => {
     },
   ];
   return (
-    <div className="Publication_list" data-aos="fade-up" data-aos-anchor-placement="top-bottom" >
+    <div
+      className="Publication_list"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+    >
       <div className="cover"></div>
       <h1>
         Participate in WCMRP-2027 and Achieve Scopus / SCIE Indexed Publication
@@ -214,7 +218,7 @@ const PublicationList = () => {
         </p>
         <div className="publication_slide">
           <Swiper
-            modules={[Autoplay, Navigation]}
+            modules={[Autoplay, Navigation, Pagination]}
             slidesPerView={1}
             spaceBetween={0}
             loop={true}
@@ -237,6 +241,12 @@ const PublicationList = () => {
                         <dt>Authors:</dt>
                         <dd>{item.authors}</dd>
                       </div>
+                      {item.presentedAt && (
+                        <div>
+                          <dt>presentedAt:</dt>
+                          <dd>{item.presentedAt}</dd>
+                        </div>
+                      )}
                       <div>
                         <dt>Journal:</dt>
                         <dd>{item.publication}</dd>

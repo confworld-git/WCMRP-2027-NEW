@@ -194,11 +194,15 @@
 }
 
 .swiper-pagination-fraction,
-.swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 5px;
 }
+
+.swiper-pagination {
+  bottom: 20px !important;
+}
+
 .publication_slide .swiper-pagination-bullet {
   width: 6px;
   height: 6px;
