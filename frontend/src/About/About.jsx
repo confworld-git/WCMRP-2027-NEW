@@ -17,7 +17,6 @@ const About = () => {
         description="Discover WCMRP 2027, the 3rd World Conference on Multidisciplinary Research and Practices, bringing global researchers together to address challenges through innovation."
         keywords="About WCMRP 2027, multidisciplinary research conference, international research conference, interdisciplinary collaboration, sustainable development, research and innovation, academic conference Malaysia"
         path="/About-WCMRP"
-        image={`${import.meta.env.VITE_FRONT_END_ULR}/assets/Images/aw.jpg`}
       />
       <div>
         <div className="speaker_head about_wcmrp_img">

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { SITE_URL } from "./seoSchemas";
 
 const SITE_NAME = "WCMRP 2027";
-const DEFAULT_IMAGE = `${SITE_URL}/wcmrp_logo.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/wcmrp_logo.jpeg`;
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -29,6 +29,7 @@ const SEO = ({
   const imageUrl = image.startsWith("http")
     ? image
     : `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`;
+
 
   return (
     <Helmet>

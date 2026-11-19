@@ -239,7 +239,6 @@ const Organizer = () => {
         description="Discover CERADA, an international educational research and development association promoting academic conferences, research publications, educational initiatives and global collaboration."
         keywords="CERADA, Confworld Educational Research and Development Association, CERADA organization, educational research association, international academic conferences, research publication services, academic collaboration, educational initiatives, research development"
         path="/About-Organizer"
-        image="https://confworld.org/images/blog-banner-new.png"
       />
       <div className="about_organizer">
         <div className="speaker_head organizer_img">
