@@ -1,10 +1,15 @@
 import "./Guidelines.css";
 import { GoArrowUpRight } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 const Guidelines = () => {
+  const navigate = useNavigate();
   return (
-    <div className="Guidelines" data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+    <div
+      className="Guidelines"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+    >
       <div className="guidelines-card">
         <div className="guidelines-copy">
           <span className="mini_head">Submission Guidelines</span>
@@ -22,13 +27,21 @@ const Guidelines = () => {
           </p>
 
           <div className="guidelines-buttons">
-            <button className="primary-btn" type="button">
+            <button
+              className="primary-btn"
+              type="button"
+              onClick={() => navigate("/Registration-Fee")}
+            >
               Register Now{" "}
               <span aria-hidden="true">
                 <GoArrowUpRight />
               </span>
             </button>
-            <button className="secondary-btn" type="button">
+            <button
+              className="secondary-btn"
+              type="button"
+              onClick={() => navigate("/abstract-full-paper-submission")}
+            >
               Submit Paper{" "}
               <span aria-hidden="true">
                 <GoArrowUpRight />
