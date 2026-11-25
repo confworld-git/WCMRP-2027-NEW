@@ -64,9 +64,9 @@ const PaperSubmit = () => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "paper_submission",
-          paper_id: PaperID,
           conference_name: "WCMRP 2027",
-          submission_type: submissionType,
+          submissionId: PaperID,
+          page_location: window.location.href,
         });
       }
       form.reset();

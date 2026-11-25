@@ -50,15 +50,18 @@ export default function PaymentSuccess() {
   useEffect(() => {
     if (!hasReceipt) return;
 
-    if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "purchase",
-        transaction_id: receipt.orderId,
-        value: Number(receipt.amount) / 100,
-        currency: receipt.currency || "USD",
-      });
-    }
+    // if (typeof window !== "undefined") {
+    //   window.dataLayer = window.dataLayer || [];
+    //   window.dataLayer.push({
+    //     event: "Registration",
+    //     conference_name: "WCMRP-2027",
+    //     ecommerce: {
+    //       transaction_id: receipt.orderId,
+    //       value: Number(receipt.amount) / 100,
+    //       currency: receipt.currency || "USD",
+    //     },
+    //   });
+    // }
 
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",

@@ -241,7 +241,6 @@ const FeeForm = () => {
     setIsCheckingOut(true);
 
     try {
-      console.log(selection);
       const { data: order } = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/registration-payments/orders`,
         {
@@ -324,6 +323,62 @@ const FeeForm = () => {
                 verification.message || "Payment verification failed.",
               );
             }
+
+            // ── GA4 / GTM purchase push ──────────────────────────────
+            const items = [
+              {
+                item_id: `${fee.presentationType}_${fee.category}`,
+                item_name: `Registration - ${fee.category}`,
+                item_category: "Registration",
+                item_variant: `${fee.presentationType} / ${fee.column}`,
+                price: registrationFeeCents / 100,
+                discount: membershipDiscountCents / 100,
+                quantity: 1,
+              },
+              ...(selectedJournal
+                ? [
+                    {
+                      item_id: `journal_${selectedJournal.id}`,
+                      item_name: selectedJournal.journal,
+                      item_category: "Journal Support",
+                      price: selectedJournal.offerPrice,
+                      quantity: 1,
+                    },
+                  ]
+                : []),
+              ...selectedAddons.map((a) => ({
+                item_id: a.id,
+                item_name: `${a.title} - ${a.description}`,
+                item_category: "Add-on",
+                price: a.price,
+                quantity: 1,
+              })),
+              ...(discount
+                ? [
+                    {
+                      item_id: "premium_membership",
+                      item_name: "Premium Membership",
+                      item_category: "Membership",
+                      price: membershipFeeCents / 100,
+                      quantity: 1,
+                    },
+                  ]
+                : []),
+            ];
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ ecommerce: null });
+            window.dataLayer.push({
+              event: "Registration",
+              conference_name: "WCMRP-2027",
+              ecommerce: {
+                transaction_id: paymentResponse.razorpay_payment_id,
+                value: Number((order.amount / 100).toFixed(2)),
+                currency: order.currency,
+                items,
+              },
+            });
+            // ─────────────────────────────────────────────────────────
             toast.success(
               verification.message || "Registration payment successful.",
             );
