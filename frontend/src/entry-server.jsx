@@ -6,7 +6,7 @@ import App from "./App.jsx";
 function getHelmetHead(appHtml, startIndex) {
   const headHtml = appHtml.slice(0, startIndex);
   const tags = headHtml.match(
-    /<(title|meta|link|base|style|script)[^>]*>(?:<\/\1>|)/gi
+    /<(title|style|script|noscript)\b[^>]*>[\s\S]*?<\/\1>|<(meta|link|base)\b[^>]*\/?>/gi
   );
 
   return tags ? tags.join("") : "";
